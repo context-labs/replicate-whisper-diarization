@@ -66,8 +66,7 @@ class Predictor(BasePredictor):
         # Check if either filestring, filepath or file is provided, but only 1 of them
         if sum([file_string is not None, file_url is not None]) != 1:
             raise RuntimeError("Provide either file_string or file_url")
-        """ filepath = ''
-        file_start, file_ending = os.path.splitext(f'{filename}')"""
+        
         ts = time.time_ns()
         filename = f'{ts}-recording'
         file_extension = '.mp3'
