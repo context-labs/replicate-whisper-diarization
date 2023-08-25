@@ -148,14 +148,14 @@ class Predictor(BasePredictor):
         print("done with whisper")
         segments = [{
             'start':
-            int(s.start + offset_seconds),
+            float(s.start + offset_seconds),
             'end':
-            int(s.end + offset_seconds),
+            float(s.end + offset_seconds),
             'text':
             s.text,
             'words': [{
-                'start': str(w.start + offset_seconds),
-                'end': str(w.end + offset_seconds),
+                'start': float(w.start + offset_seconds),
+                'end': float(w.end + offset_seconds),
                 'word': w.word
             } for w in s.words]
         } for s in segments]
