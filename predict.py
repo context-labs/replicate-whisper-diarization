@@ -115,7 +115,6 @@ class Predictor(BasePredictor):
                        prompt="People takling.",
                        offset_seconds=0,
                        group_segments=True):
-        # model = whisper.load_model('large-v2')
         time_start = time.time()
 
         try:
@@ -149,14 +148,14 @@ class Predictor(BasePredictor):
         print("done with whisper")
         segments = [{
             'start':
-            int(round(s.start + offset_seconds)),
+            int(s.start + offset_seconds),
             'end':
-            int(round(s.end + offset_seconds)),
+            int(s.end + offset_seconds),
             'text':
             s.text,
             'words': [{
-                'start': str(round(w.start + offset_seconds)),
-                'end': str(round(w.end + offset_seconds)),
+                'start': str(w.start + offset_seconds),
+                'end': str(w.end + offset_seconds),
                 'word': w.word
             } for w in s.words]
         } for s in segments]
